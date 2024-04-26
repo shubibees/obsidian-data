@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TC Series Printer</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://in.canon/assets/favicon-f025e90207d0d413a6d3b78b0cc3df08.ico"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+      integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cloud.connect.canon.co.in/tc-style.css"
+    />
+    <style>
+      @media (prefers-reduced-motion: no-preference) {
+        :has(:target) {
+          scroll-behavior: smooth;
+          scroll-padding-top: 20vh;
+        }
+      }
+
+      .flex-shrink-0 {
+        flex-shrink: 0;
+      }
+
+      svg {
+        display: block;
+        vertical-align: middle;
+      }
+      .w-8 {
+        width: 2rem;
+      }
+
+      .h-8 {
+        height: 2rem;
+      }
+
+      .overflow-hidden {
+        overflow: hidden;
+      }
+      .flex {
+        display: flex;
+      }
+      .inline-flex {
+        display: inline-flex;
+      }
+      .text-gray-200 {
+        --tw-text-opacity: 1;
+        color: rgba(229, 231, 235, var(--tw-text-opacity));
+      }
+      .text-yellow-400 {
+        --tw-text-opacity: 1;
+        color: rgba(251, 191, 36, var(--tw-text-opacity));
+      }
+      .star-source {
+        display: none;
+      }
+
+      .deal-offer {
+        z-index: 111;
+      }
+      .enquiry_popup {
+        z-index: 9999;
+      }
+
+      .deal-offer {
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        cursor: pointer;
+        margin-inline: auto;
+        right: 0;
+        border-radius: 20px 20px 20px 20px;
+        margin-bottom: 10px;
+      }
+      .deal-offer .container {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .star-container {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .star-grid {
+        display: grid;
+        width: fit-content;
+        grid-template-areas: "stack";
+        margin-inline: auto;
+      }
+      .star-grid > * {
+        grid-area: stack;
+      }
+
+      @media (max-width: 2580px) and (min-width: 1500px) {
+        .container {
+          min-width: 70%;
+        }
+      }
+      @media (max-width: 1280px) and (min-width: 1023px) {
+        .enquiry-form button {
+          padding: 8px;
+          border-radius: 40px;
+          font-size: 17px;
+          margin-top: 24px;
+        }
+        .enquiry-form input {
+          margin-bottom: 17px;
+          padding: 15px;
+          border-radius: 10px;
+          border: 1px solid #ccc;
+          height: 33px;
+          font-size: 16px;
+        }
+        .enquiry_title h3 {
+          font-size: 27px;
+          margin-top: 7px;
+          margin-bottom: 6px;
+        }
+
+        .main-popup {
+          margin-right: 20px;
+          margin-bottom: 10px;
+        }
+      }
+      @media (max-width: 40em) {
+        .enquiry_popup {
+          z-index: 0;
+          position: relative !important;
+          display: flex;
+        }
+        .enquiry_popup h3 {
+          display: none;
+        }
+        :is(.enquire-close) {
+          display: none;
+        }
+        .main-popup {
+          margin-bottom: 50px;
+          padding: 16px 16px;
+          height: 90%;
+          width: 100%;
+          max-width: 100%;
+          border-radius: 4px;
+        }
+        .enquiry-form label input {
+          width: 14px;
+          height: 14px;
+        }
+        .enquiry-form input {
+          width: 100%;
+          margin-bottom: 8px;
+          padding: 17px;
+          border-radius: 10px;
+          border: 1px solid #ccc;
+          height: 50px;
+          font-size: 16px;
+        }
+        .deal-offer .container {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          align-items: start;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .main-sec .heading-txt p {
+          font-size: 22px;
+          font-weight: 400;
+          line-height: 26px;
+        }
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .deal-offer {
+        padding: 0px;
+      }
+
+      .deal-offer .enquire-btn.active {
+        background: #0586e9;
+        color: #f7f7f7 !important;
+      }
+      .deal-offer .enquire-btn {
+        padding: 12px 30px;
+        background: #e3e6e9;
+        border-radius: 100px;
+        font-size: 18px;
+        color: #0586e9;
+        text-decoration: none;
+      }
+
+      .padding-block-none {
+        padding-block: 0px !important;
+      }
+
+      .commo {
+        font-size: 30px;
+        font-weight: 800;
+        color: rgba(251, 191, 36) !important;
+      }
+
+      @media (max-width: 600px) {
+        .testimonial .trust-ul li {
+          border: 0px;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .deal-offer {
+          padding: 10px 0;
+        }
+
+        .deal-offer .text-box {
+          font-size: 14px;
+        }
+        .deal-offer .enquire-btn {
+          padding: 6px 16px;
+          font-size: 13px;
+        }
+        .deal-offer .text-box span {
+          padding-left: 0px;
+        }
+      }
+    </style>
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-WC4S3XC");
+    </script>
+    <!-- End Google Tag Manager -->
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-WC4S3XC"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <script type="text/javascript">
+      (function (c, l, a, r, i, t, y) {
+        c[a] =
+          c[a] ||
+          function () {
+            (c[a].q = c[a].q || []).push(arguments);
+          };
+        t = l.createElement(r);
+        t.async = 1;
+        t.src = "https://www.clarity.ms/tag/" + i;
+        y = l.getElementsByTagName(r)[0];
+        y.parentNode.insertBefore(t, y);
+      })(window, document, "clarity", "script", "kg0qrlbs7y");
+    </script>
+  </head>
+  <body>
+    %%[ var @name, @email, @Phnumber, @sendableEmail, @optin, @utm_source,
+    @utm_medium, @utm_campaign, @utm_Id, @utm_term, @utm_content, @state, @city,
+    @orgName, @product, @industry, @product_interested, @scheduledEmail ,@time
+    SET @name = RequestParameter("name") SET @email = RequestParameter("email")
+    SET @Phnumber = RequestParameter("phone") SET @utm_campaign =
+    RequestParameter("utm_campaign") SET @utm_medium =
+    RequestParameter("utm_medium") SET @utm_source =
+    RequestParameter("utm_source") SET @utm_content =
+    RequestParameter("utm_content") SET @utm_term = RequestParameter("utm_term")
+    SET @utm_Id = RequestParameter("utm_id") SET @submited_date = Format(Now(),
+    "dd/MM/yyyy") /* Set default value for OptIn */ SET @optin = "True" /* Set
+    default value for Scheduled_Email */ SET @scheduledEmail =
+    "priyadarshani.das@ienergizer.com" SET @time = Format(Now(), "HH:mm:ss") IF
+    NOT EMPTY(@email) THEN UpsertData( "Tc-Data", 1, "Email", @email, "Name",
+    @name, "Mobile_No", @Phnumber, "utm_source", @utm_source, "utm_medium",
+    @utm_medium, "utm_campaign", @utm_campaign, "utm_content", @utm_content,
+    "utm_term", @utm_term, "utm_Id", @utm_Id, "OptIn", @optin,
+    "Scheduled_Email", @scheduledEmail, "time",@time, "date", @submited_date )
+    Redirect("https://cloud.connect.canon.co.in/tc-series-thank-you") ENDIF ]%%
+
+    <header>
+      <div class="container">
+        <div class="flex-box">
+          <div class="logo">
+            <img
+              src="https://image.connect.canon.co.in/lib/fe3811737164047f711574/m/1/4393644c-8add-49d2-bb66-11e0a710b5b4.png?b=1703372293000"
+              alt="canon"
+            />
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="main-sec">
+      <div class="container">
+        <div class="heading-txt">
+          <div class="main-heading">
+            Canon imagePROGRAF TC-20 Large Format Printer
+          </div>
+          <p>
+            Master CAD drawings with the compact Canon TC-20 Large Format
+            Printer which guarantees pinpoint precision and line accuracy
+          </p>
+        </div>
+        <div class="enquiry_popup active" id="enquery-form">
+          <div class="main-popup">
+            <div class="enquire-close">X</div>
+            <div class="enquiry-form" id="enquery-form">
+              <div class="enquiry_title">
+                <p>To Know Exclusive Offers and Best Deals</p>
+                <h3>Enquire Now</h3>
+              </div>
+              <form>
+                <input
+                  type="hidden"
+                  id="utm_campaign"
+                  name="utm_campaign"
+                  value=""
+                />
+                <input
+                  type="hidden"
+                  id="utm_medium"
+                  name="utm_medium"
+                  value=""
+                />
+                <input
+                  type="hidden"
+                  id="utm_source"
+                  name="utm_source"
+                  value=""
+                />
+                <input
+                  type="hidden"
+                  id="utm_content"
+                  name="utm_content"
+                  value=""
+                />
+                <input type="hidden" id="utm_term" name="utm_term" value="" />
+                <input type="hidden" id="utm_id" name="utm_id" value="" />
+
+                <!--  
+<input type="text" class="form-control" placeholder="Name*" name="name" required pattern="[A-Za-z ]+" >
+<input type="text" class="form-control" placeholder="Phone*" name="phone" required pattern="\d{10}" minlength="9" maxlength="10">
+<input type="email" class="form-control" placeholder="Email*" name="email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" >
+-->
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Name*"
+                  name="name"
+                  required
+                />
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Phone*"
+                  name="phone"
+                  required
+                />
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Email*"
+                  name="email"
+                  required
+                />
+                <div class="">
+                  <label
+                    ><input
+                      type="checkbox"
+                      style="margin-bottom: 0px"
+                      required
+                    />
+                    I Authorize Canon India & It’s representatives to call me or
+                    SMS me with reference to this enquiry. This consent will
+                    override any registration for DNC/NDNC.</label
+                  >
+                </div>
+                <button type="submit" class="subbtn">Submit Your Query</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="banner-slider">
+          <ul class="owl-carousel">
+            <li>
+              <img
+                src="https://image.connect.canon.co.in/lib/fe3811737164047f711574/m/1/69f7eca2-a96f-402c-acb4-3a0d6d009906.jpg?b=1703370345000"
+                alt="banner"
+              />
+            </li>
+            <li>
+              <img
+                src="https://image.connect.canon.co.in/lib/fe3811737164047f711574/m/1/8bfc8129-0600-424f-9058-b74e3e7c45f0.jpg?b=1703370345000"
+                alt="banner"
+              />
+            </li>
+            <li>
+              <img
+                src="https://image.connect.canon.co.in/lib/fe3811737164047f711574/m/1/57823c29-47ec-43ee-8207-51a4462ffe94.jpg?b=1703370340000"
+                alt="banner"
+              />
+            </li>
+            <li>
+              <img
+                src="https://image.connect.canon.co.in/lib/fe3811737164047f711574/m/1/281879bf-2b6a-4aa6-8648-14d8728bfeb5.jpg?b=1703370340000"
+                alt="banner"
+              />
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="list-items">
+          <ul class="flex-box">
+            <li>
+              <div class="img-box">
+                <img
+                  src="https://image.connect.canon.co.in/lib/fe3811737164047f711574/m/1/3d633bcb-4b2d-44ad-a378-07e62f373bc7.png?b=1703370339000"
+                  alt=""
+                />
+              </div>
+              <div class="txt-box">
+                <span>140+ strong</span> network of channel partners
+              </div>
+            </li>
+            <li>
+              <div class="img-box">
+                <img
+                  src="https://image.connect.canon.co.in/lib/fe3811737164047f711574/m/1/de118f52-ab34-4289-bed8-873943c95a3b.png?b=1703370342000"
+                  alt=""
+                />
+              </div>
+              <div class="txt-box">
+                <span>Pan-India</span> after sales support
+              </div>
+            </li>
+            <li>
+              <div class="img-box">
+                <img
+                  src="https://image.connect.canon.co.in/lib/fe3811737164047f711574/m/1/631b01f9-5443-412b-a829-04025bacd818.png?b=1703370344000"
+                  alt=""
+                />
+              </div>
+              <div class="txt-box">
+                <span>90+ years</span> old Japanese legacy with global presence
+              </div>
+            </li>
+            <li>
+              <div class="img-box">
+                <img
+                  src="https://image.connect.canon.co.in/lib/fe3811737164047f711574/m/1/b466c8af-c2cf-48d4-9863-ebf013c670ed.png?b=1703370343000"
+                  alt=""
+                />
+              </div>
+              <div class="txt-box">
+                <span>Widest range</span> of product portfolio
+              </div>
+            </li>
+            <li>
+              <div class="img-box">
+                <img
+                  src="https://image.connect.canon.co.in/lib/fe3811737164047f711574/m/1/e39e562b-ef25-46b4-9310-095fa5e0c24d.png?b=1703370343000"
+                  alt=""
+                />
+              </div>
+              <div class="txt-box"><span>12000+</span> units sold</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="key-usp">
+        <div class="container">
+          <div class="main-heading">Key USPs you can't miss out on</div>
+          <ul class="flex-box">
+            <li>
+              <div class="img-box">
+                <img
+                  src="https://image.connect.canon.co.in/lib/fe3811737164047f711574/m/1/39085ca9-85db-4364-a684-35869b5f0dc7.jpg?b=1703370341000"
+                  alt=""
+                />
+              </div>
+              <fiv class="txt-box">
+                <div class="title">Compact Desktop Model</div>
+                <p>
+                  Canon TC-20 Large Format Printer easily fits into shelves or
+                  can be placed on desks within small spaces without any stand
+                </p>
+              </fiv>
+            </li>
+            <li>
+              <div class="img-box">
+                <img
+                  src="https://image.connect.canon.co.in/lib/fe3811737164047f711574/m/1/4199b299-dce3-4fdb-af21-9556f1601f12.jpg?b=1703370344000"
+                  alt=""
+                />
+              </div>
+              <fiv class="txt-box">
+                <div class="title">Auto Sheet Feeder for 100 sheets</div>
+                <p>
+                  Easily load cut-sheet media with Auto Sheet Feeder that can
+                  cater 100 A4 sheets at a time
+                </p>
+              </fiv>
+            </li>
+            <li>
+              <div class="img-box">
+                <img
+                  src="https://image.connect.canon.co.in/lib/fe3811737164047f711574/m/1/e811654e-9267-40bc-a665-8752add3ea83.jpg?b=1703370342000"
+                  alt=""
+                />
+              </div>
+              <fiv class="txt-box">
+                <div class="title">Refillable Ink Tanks</div>
+                <p>
+                  The Canon TC-20 comes with refillable ink tanks with a total
+                  capacity of 280 ml for a hassle-free experience
+                </p>
+              </fiv>
+            </li>
+            <li>
+              <div class="img-box">
+                <img
+                  src="https://image.connect.canon.co.in/lib/fe3811737164047f711574/m/1/c25b735c-5a74-4cf5-8693-b1c3ce03be58.jpg?b=1703370339000"
+                  alt=""
+                />
+              </div>
+              <fiv class="txt-box">
+                <div class="title">CAD, Renderings & Perspectives</div>
+                <p>
+                  Print CAD, Renderings and Perspectives with utmost precision
+                  and line accuracy
+                </p>
+              </fiv>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="design-arch">
+        <div class="container">
+          <div class="heading-txt padding-block-none">
+            <div class="main-heading">Designed for Architects</div>
+            <p>Best A3 Printer for Architects</p>
+          </div>
+          <div class="flex-box">
+            <div class="left-sec">
+              <img
+                src="https://image.connect.canon.co.in/lib/fe3811737164047f711574/m/1/e9a9deb7-0cf7-4820-bd7c-c1c37de841d7.jpg?b=1703370343000"
+                alt="image"
+                class="off"
+              />
+            </div>
+            <div class="right-sec">
+              <ul>
+                <li>
+                  <div class="icon">
+                    <img
+                      src="https://image.connect.canon.co.in/lib/fe3811737164047f711574/m/1/8f902103-4101-4c16-846b-b866db6a5f5f.png?b=1703370343000"
+                      alt=""
+                    />
+                  </div>
+                  <div class="txt">
+                    <div class="title">Save Space</div>
+                    <p>
+                      Canon TC-20 Large Format Printer easily fits into shelves
+                      or can be placed on desks within small spaces without any
+                      stand
+                    </p>
+                  </div>
+                  <div class="left-img">
+                    <img
+                      src="https://image.connect.canon.co.in/lib/fe3811737164047f711574/m/1/e9a9deb7-0cf7-4820-bd7c-c1c37de841d7.jpg?b=1703370343000"
+                      alt="image"
+                      class=""
+                    />
+                  </div>
+                </li>
+                <li>
+                  <div class="icon">
+                    <img
+                      src="https://image.connect.canon.co.in/lib/fe3811737164047f711574/m/1/e914e1df-98d7-40a0-810d-447131de0dea.jpg?b=1703370340000"
+                      alt=""
+                    />
+                  </div>
+                  <div class="txt">
+                    <div class="title">Convenience Guaranteed</div>
+                    <p>
+                      Easily switch between cut-sheet media and paper roll with
+                      Auto-Sheet Feeder
+                    </p>
+                  </div>
+                  <div class="left-img">
+                    <img
+                      src="https://image.connect.canon.co.in/lib/fe3811737164047f711574/m/1/89692000-83ff-4a62-b1ca-7eb2fbd3af43.jpg?b=1703370339000"
+                      alt="image"
+                      class=""
+                    />
+                  </div>
+                </li>
+                <li>
+                  <div class="icon">
+                    <img
+                      src="https://image.connect.canon.co.in/lib/fe3811737164047f711574/m/1/a44a8c5d-a773-4470-b333-23477d14c3f0.jpg?b=1703370341000"
+                      alt=""
+                    />
+                  </div>
+                  <div class="txt">
+                    <div class="title">Increased Profitability</div>
+                    <p>
+                      Refillable ink tanks reduce the cost/ print leading to
+                      more savings and profits!
+                    </p>
+                  </div>
+                  <div class="left-img">
+                    <img
+                      src="https://image.connect.canon.co.in/lib/fe3811737164047f711574/m/1/4952e26b-fbab-449a-bb54-fc65b723e9ec.jpg?b=1703370341000"
+                      alt="image"
+                      class=""
+                    />
+                  </div>
+                </li>
+                <li>
+                  <div class="icon">
+                    <img
+                      src="https://image.connect.canon.co.in/lib/fe3811737164047f711574/m/1/f4f53f27-e4dc-4c80-acc0-0e8d55981ddf.jpg?b=1703370342000"
+                      alt=""
+                    />
+                  </div>
+                  <div class="txt">
+                    <div class="title">Reduced Power Bills by 50%</div>
+                    <p>
+                      Canon TC-20 consumes 50% less standby power compared to
+                      other models
+                    </p>
+                  </div>
+                  <div class="left-img">
+                    <img
+                      src="https://image.connect.canon.co.in/lib/fe3811737164047f711574/m/1/f9366a4c-ad59-41e4-9a36-3f2eb9811338.jpg?b=1703370342000g"
+                      alt="image"
+                      class=""
+                    />
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="container">
+          <div class="heading-txt padding-block-none">
+            <div class="main-heading">Testimonials</div>
+            <p>
+              <span>
+                <div class="star-grid">
+                  <div class="text-gray-200 inline-flex space-x-1">
+                    <svg viewBox="0 0 32 30" class="w-8 h-8">
+                      <use xlink:href="#star"></use>
+                    </svg>
+                    <svg viewBox="0 0 32 30" class="w-8 h-8">
+                      <use xlink:href="#star"></use>
+                    </svg>
+                    <svg viewBox="0 0 32 30" class="w-8 h-8">
+                      <use xlink:href="#star"></use>
+                    </svg>
+                    <svg viewBox="0 0 32 30" class="w-8 h-8">
+                      <use xlink:href="#star"></use>
+                    </svg>
+                    <svg viewBox="0 0 32 30" class="w-8 h-8">
+                      <use xlink:href="#star"></use>
+                    </svg>
+                  </div>
+                  <div
+                    class="overflow-hidden text-yellow-400 flex space-x-1"
+                    style="width: 86%"
+                  >
+                    <svg viewBox="0 0 32 30" class="w-8 h-8 flex-shrink-0">
+                      <use xlink:href="#star"></use>
+                    </svg>
+                    <svg viewBox="0 0 32 30" class="w-8 h-8 flex-shrink-0">
+                      <use xlink:href="#star"></use>
+                    </svg>
+                    <svg viewBox="0 0 32 30" class="w-8 h-8 flex-shrink-0">
+                      <use xlink:href="#star"></use>
+                    </svg>
+                    <svg viewBox="0 0 32 30" class="w-8 h-8 flex-shrink-0">
+                      <use xlink:href="#star"></use>
+                    </svg>
+                    <svg viewBox="0 0 32 30" class="w-8 h-8 flex-shrink-0">
+                      <use xlink:href="#star"></use>
+                    </svg>
+                  </div></div
+              ></span>
+            </p>
+          </div>
+
+          <ul class="flex-box">
+            <li>
+              <p>
+                <span class="commo">&#8220;</span>
+                I have been in a practicing architect from the last 26 years. I
+                brought
+                <span>Canon Large Format Printer around 5 years back</span>. The
+                best thing I liked about the large format printer is its
+                <span>robustness and durability</span>. The printer is designed
+                to
+                <span
+                  >produce accurate CAD drawings with highest degree of line
+                  accuracy</span
+                >.
+                <span>
+                  Best A3 printer for architectural drawings .
+                  <span class="commo">&#8221;</span>
+                </span>
+              </p>
+              <div class="detail-box">
+                <div class="img-sec">
+                  <img
+                    src="https://image.connect.canon.co.in/lib/fe3811737164047f711574/m/1/9317d9f9-2f27-4054-9f1d-9e9b2f54da8b.jpg?b=1703370344000"
+                    alt="Mr. Amin Nayyar | Architect"
+                  />
+                </div>
+                <div class="details">
+                  <span>Mr. Amin Nayyar | Architect</span>CEO, Anna Design
+                  Studio
+                  <br />
+                  New Delhi
+                </div>
+              </div>
+            </li>
+            <li>
+              <p>
+                <span class="commo">&#8220;</span>
+                I have been in a practising architect since 2002. My Canon Large
+                Format Printer is very <span>user friendly</span>. The best part
+                about the printer is <span>low running cost</span>. The ink
+                tanks used are very
+                <span>economical resulting in very low cost/ print</span>.
+                <span>
+                  Best plotter for architects.
+                  <span class="commo">&#8221;</span>
+                </span>
+              </p>
+              <div class="detail-box">
+                <div class="img-sec">
+                  <img
+                    src="https://image.connect.canon.co.in/lib/fe3811737164047f711574/m/1/0710ec53-bb89-41cd-83ac-d4fbc71c649a.jpg?b=1703370342000"
+                    alt="Mr. Prakash Azad | Architect"
+                  />
+                </div>
+                <div class="details">
+                  <span>Mr. Prakash Azad | Architect</span>Prakash B Azad &
+                  Associates,
+                  <br />
+                  Rajasthan
+                </div>
+              </div>
+            </li>
+            <li>
+              <p>
+                <span class="commo">&#8220;</span>
+                I have been using Canon Large Format Printer from the last 1
+                year. The value that I have received from this printer is
+                immense. I have almost
+                <span>saved Rs. 2,00,000 in running costs</span> with this
+                printer. I highly <span>recommend it to other architects</span>.
+                I have been using Canon Large Format Inkjet Plotter​.
+                <span>
+                  It is the Best large format printer.
+                  <span class="commo">&#8221;</span></span
+                >
+              </p>
+              <div class="detail-box">
+                <div class="img-sec">
+                  <img
+                    src="https://image.connect.canon.co.in/lib/fe3811737164047f711574/m/1/c4ee5475-c0f3-4693-8f20-89ea0a95785b.jpg?b=1703370344000"
+                    alt="Mr. Yudhveer Singh | Architect:​"
+                  />
+                </div>
+                <div class="details">
+                  <span>Mr. Yudhveer Singh | Architect</span>Ardian Designs and
+                  Digital Pvt. Ltd.
+                  <br />
+                  Noida, Uttar Pradesh
+                </div>
+              </div>
+            </li>
+          </ul>
+          <div class="main-heading" style="margin-top: 50px">Trusted By</div>
+          <ul class="trust-ul flex-box">
+            <li>K Bhupal Engineers & Contractors Pvt Ltd</li>
+            <li>Concept Cloud Architects</li>
+            <li>Isorropia Structures Pvt Ltd</li>
+            <li>Anveshak Architects Associates</li>
+            <li>G M ARCH Pvt.Ltd.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer">
+        Copyright © 2023 Canon.
+        <a href="https://in.canon/en/consumer/web/privacy" target="_blank"
+          >Cookie Policy</a
+        >
+        |
+        <a href="https://in.canon/en/consumer/web/privacy" target="_blank"
+          >Privacy Notice
+        </a>
+      </div>
+    </section>
+
+    <div class="deal-offer container">
+      <div class="text-box">
+        <!-- <img src="https://image.connect.canon.co.in/lib/fe3811737164047f711574/m/1/82fd438f-bb03-41dc-8d93-682d05ad8a1e.png?b=1703370342000" alt="percent" /> --><span
+          ><a href="#enquery-form"
+            >Click Here to Unlock Exclusive Deals and Offers</a
+          ></span
+        >
+      </div>
+      <!--   <div class="enquire-btn">
+         <a href="#enquery-form">Click Here for Offers</a>
+       </div> -->
+    </div>
+    <div class="star-source">
+      <svg class="hidden">
+        <symbol
+          id="star"
+          width="32"
+          height="30"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M31.77 11.857H19.74L15.99.5l-3.782 11.357H0l9.885 6.903-3.692 11.21 9.736-7.05 9.796 6.962-3.722-11.18 9.766-6.845z"
+            fill="currentColor"
+          />
+        </symbol>
+      </svg>
+    </div>
+  </body>
+  <script
+    src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+    integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+    defer
+  ></script>
+  <script src="tc-main.js"></script>
+  <script>
+    $(document).ready(function () {
+      $(".enquire-btn, .deal-offer").click(function () {
+        $(".enquiry_popup").addClass("active");
+        $(".enquire-btn").addClass("active");
+      });
+
+      $(".enquire-close").click(function () {
+        $(".enquiry_popup").removeClass("active");
+        $(".enquire-btn").removeClass("active");
+      });
+    });
+    function setUTM() {
+      const utmCampaign = getURLParameter("utm_campaign");
+      const utmMedium = getURLParameter("utm_medium");
+      const utmSource = getURLParameter("utm_source");
+      const utmContent = getURLParameter("utm_content");
+      const utmTerm = getURLParameter("utm_term");
+      const utmId = getURLParameter("utm_id");
+
+      if (utmMedium && utmSource) {
+        if (utmCampaign) {
+          document.getElementById("utm_campaign").value = utmCampaign;
+        } else {
+          document.getElementById("utm_campaign").value = "";
+        }
+
+        document.getElementById("utm_medium").value = utmMedium;
+        document.getElementById("utm_source").value = utmSource;
+
+        // Additional fields
+        document.getElementById("utm_content").value = utmContent || "";
+        document.getElementById("utm_term").value = utmTerm || "";
+        document.getElementById("utm_id").value = utmId || "";
+      }
+    }
+
+    function getURLParameter(name) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(name);
+    }
+    setUTM();
+     var myID = document.querySelector(".enquiry_popup");
+    var times = 0;
+
+    var myScrollFunc = function () {
+      var y = window.scrollY;
+      if (y >= 800) {
+        if (times > 0) {
+          return;
+        }
+        myID.className = "enquiry_popup active";
+        times++;
+      } else {
+        if (!myID.classList.contains("active"))
+          myID.className = "enquiry_popup hide";
+      }
+    }; 
+
+    window.addEventListener("scroll", myScrollFunc);
+  </script>
+</html>
