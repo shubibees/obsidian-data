@@ -1,0 +1,2 @@
+* probability [[probability]]
+* linear algerbra

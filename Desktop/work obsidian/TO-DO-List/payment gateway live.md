@@ -1,0 +1,1 @@
+* change currency of usa, from "Dollar" to "USD"

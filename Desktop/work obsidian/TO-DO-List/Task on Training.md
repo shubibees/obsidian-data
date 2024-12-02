@@ -1,0 +1,6 @@
+- [x] Remove buy priceing and currency from course management
+- [ ] Ask why we need country in schedule if course already have country
+- [x] correct edit button in https://admin.vinsys.com/business/client/
+- [ ] Need to add show_on_header field in domain/vendor
+- [ ] Need to change default in get_course_list function
+- [ ] 

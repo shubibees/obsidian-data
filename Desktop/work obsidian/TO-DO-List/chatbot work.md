@@ -1,0 +1,3 @@
+- https://github.com/yogeshhk/FAQChatbot
+- it should do some rule base chat
+- it should also be interactive, like it should give faq to select and give response which is also going to be faq
